@@ -61,3 +61,60 @@ function deleteLastEntry() {
   resultArr.splice(deleted);
   resultDiv.textContent = resultArr.join("");
 }
+
+// * Creating the function which responsible for operations performing.
+
+equalBtn.addEventListener("click", equation);
+function equation() {
+  let resultText = resultDiv.textContent;
+  let multiply = resultText.split("*");
+  let division = resultText.split("/");
+  let add = resultText.split("+");
+  let subtract = resultText.split("-");
+  let modulus = resultText.split("%");
+  if (resultText.includes("*")) {
+    let resultMul = 1;
+    for (let i = 0; i < multiply.length; i++) {
+      if (multiply !== [""]) {
+        resultMul *= Number(multiply[i]);
+      }
+    }
+    resultDiv.textContent = resultMul;
+  }
+  if (resultText.includes("/")) {
+    let resultDivision = Number(division[0]);
+    for (let i = 1; i < division.length; i++) {
+      if (division !== [""]) {
+        resultDivision /= Number(division[i]);
+      }
+    }
+    resultDiv.textContent = resultDivision;
+  }
+  if (resultText.includes("+")) {
+    let resultAdd = 0;
+    for (let i = 0; i < add.length; i++) {
+      if (add !== [""]) {
+        resultAdd += Number(add[i]);
+      }
+    }
+    resultDiv.textContent = resultAdd;
+  }
+  if (resultText.includes("-")) {
+    let resultSub = Number(subtract[0]);
+    for (let i = 1; i < subtract.length; i++) {
+      if (subtract !== [""]) {
+        resultSub -= Number(subtract[i]);
+      }
+    }
+    resultDiv.textContent = resultSub;
+  }
+  if (resultText.includes("%")) {
+    let resultMod = Number(modulus[0]);
+    for (let i = 1; i < modulus.length; i++) {
+      if (modulus !== [""]) {
+        resultMod %= Number(modulus[i]);
+      }
+    }
+    resultDiv.textContent = resultMod;
+  }
+}
