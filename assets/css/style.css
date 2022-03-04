@@ -68,6 +68,9 @@ button {
 .operation-screen {
   grid-area: 2 / 1 / 3 / 5;
   background-color: var(--screen-color);
+  cursor: text;
+  letter-spacing: 5px;
+  padding: 1em;
 }
 
 .result-screen {
@@ -250,8 +253,12 @@ ul.second-statement li {
 
 /* Making the page responsive for the tablet version */
 @media only screen and (min-width: 720px) {
+  body {
+    padding-bottom: 0.5em;
+  }
   .container {
     width: 60%;
+    height: 80vh;
   }
   ul.first-statement li {
     width: 65%;
@@ -264,8 +271,12 @@ ul.second-statement li {
 
 /* Making the page responsive for the desktop version */
 @media only screen and (min-width: 1024px) {
+  body {
+    padding-bottom: 1.5em;
+  }
   .container {
     width: 50%;
+    height: 78vh;
   }
   div.division .division {
     width: 70px;
