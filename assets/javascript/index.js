@@ -22,6 +22,15 @@ let nineBtn = document.querySelector("[value='9']");
 let zeroBtn = document.querySelector("[value='0']");
 let dotBtn = document.querySelector("[value='.']");
 
+// * Getting the data from local storage.
+if (localStorage.getItem("math-operation")) {
+  operationsScreen.textContent = localStorage.getItem("math-operation");
+}
+
+if (localStorage.getItem("result")) {
+  resultDiv.textContent = localStorage.getItem("result");
+}
+
 // * Creating the function that is responsible for printing to the result screen and add event listeners.
 oneBtn.addEventListener("click", addToResultScreen);
 twoBtn.addEventListener("click", addToResultScreen);
@@ -82,6 +91,7 @@ function equation() {
       }
     }
     resultDiv.textContent = resultMul;
+    addResultToLS(resultMul);
   }
   if (resultText.includes("/")) {
     let resultDivision = Number(division[0]);
@@ -91,6 +101,7 @@ function equation() {
       }
     }
     resultDiv.textContent = resultDivision;
+    addResultToLS(resultDivision);
   }
   if (resultText.includes("+")) {
     let resultAdd = 0;
@@ -100,6 +111,7 @@ function equation() {
       }
     }
     resultDiv.textContent = resultAdd;
+    addResultToLS(resultAdd);
   }
   if (resultText.includes("-")) {
     let resultSub = Number(subtract[0]);
@@ -109,6 +121,7 @@ function equation() {
       }
     }
     resultDiv.textContent = resultSub;
+    addResultToLS(resultSub);
   }
   if (resultText.includes("%")) {
     let resultMod = Number(modulus[0]);
@@ -118,5 +131,19 @@ function equation() {
       }
     }
     resultDiv.textContent = resultMod;
+    addResultToLS(resultMod);
   }
+  addOperationToLS(resultText);
+}
+
+// * Creating the function that responsible for adding the math operation to the local storage.
+
+function addOperationToLS(mathOp) {
+  window.localStorage.setItem("math-operation", mathOp);
+}
+
+// * Creating the function that responsible for adding the result to the local storage.
+
+function addResultToLS(result) {
+  window.localStorage.setItem("result", result);
 }
