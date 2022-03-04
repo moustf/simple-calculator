@@ -27,7 +27,8 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  padding-bottom: 2em;
 }
 
 .container {
@@ -36,7 +37,7 @@ body {
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   background-color: #eee;
   border-radius: 2em;
 }
@@ -64,8 +65,13 @@ button {
   font-weight: bold;
 }
 
-.result-screen {
+.operation-screen {
   grid-area: 2 / 1 / 3 / 5;
+  background-color: var(--screen-color);
+}
+
+.result-screen {
+  grid-area: 3 / 1 / 4 / 5;
   background-color: var(--screen-color);
   cursor: text;
   letter-spacing: 5px;
@@ -73,15 +79,15 @@ button {
 }
 
 .c-btn {
-  grid-area: 3 / 1 / 4 / 2;
+  grid-area: 4 / 1 / 5 / 2;
 }
 
 .ce-btn {
-  grid-area: 3 / 2 / 4 / 3;
+  grid-area: 4 / 2 / 5 / 3;
 }
 
 .modulus {
-  grid-area: 3 / 3 / 4 / 4;
+  grid-area: 4 / 3 / 5 / 4;
 }
 
 div.division {
@@ -92,7 +98,7 @@ div.division {
 }
 
 div.division .division {
-  grid-area: 3 / 4 / 4 / 5;
+  grid-area: 4 / 4 / 5 / 5;
   background-color: var(--division-color);
   border-radius: 50%;
   width: 50px;
@@ -108,7 +114,7 @@ div.multiply {
 }
 
 div.multiply .multiply {
-  grid-area: 4 / 4 / 5 / 5;
+  grid-area: 5 / 4 / 6 / 5;
   background-color: var(--multiply-color);
   border-radius: 50%;
   width: 50px;
@@ -124,7 +130,7 @@ div.add {
 }
 
 div.add .add {
-  grid-area: 6 / 4 / 7 / 5;
+  grid-area: 7 / 4 / 8 / 5;
   background-color: var(--add-color);
   border-radius: 50%;
   width: 50px;
@@ -140,7 +146,7 @@ div.subtract {
 }
 
 div.subtract .subtract {
-  grid-area: 5 / 4 / 6 / 5;
+  grid-area: 6 / 4 / 7 / 5;
   background-color: var(--subtract-color);
   border-radius: 50%;
   width: 50px;
@@ -156,7 +162,7 @@ div.equal {
 }
 
 div.equal .equal {
-  grid-area: 7 / 4 / 8 / 5;
+  grid-area: 8 / 4 / 9 / 5;
   background-color: var(--equal-color);
   border-radius: 50%;
   width: 50px;
@@ -166,58 +172,93 @@ div.equal .equal {
 }
 
 .one {
-  grid-area: 6 / 1 / 7 / 2;
+  grid-area: 7 / 1 / 8 / 2;
 }
 
 .two {
-  grid-area: 6 / 2 / 7 / 3;
+  grid-area: 7 / 2 / 8 / 3;
 }
 
 .three {
-  grid-area: 6 / 3 / 7 / 4;
+  grid-area: 7 / 3 / 8 / 4;
 }
 
 .four {
-  grid-area: 5 / 1 / 6 / 2;
+  grid-area: 6 / 1 / 7 / 2;
 }
 
 .five {
-  grid-area: 5 / 2 / 6 / 3;
+  grid-area: 6 / 2 / 7 / 3;
 }
 
 .six {
-  grid-area: 5 / 3 / 6 / 4;
+  grid-area: 6 / 3 / 7 / 4;
 }
 
 .seven {
-  grid-area: 4 / 1 / 5 / 2;
+  grid-area: 5 / 1 / 6 / 2;
 }
 
 .eight {
-  grid-area: 4 / 2 / 5 / 3;
+  grid-area: 5 / 2 / 6 / 3;
 }
 
 .nine {
-  grid-area: 4 / 3 / 5 / 4;
+  grid-area: 5 / 3 / 6 / 4;
 }
 
 .zero {
-  grid-area: 7 / 1 / 8 / 3;
+  grid-area: 8 / 1 / 9 / 3;
   border-bottom-left-radius: 2em;
 }
 
 .dot {
-  grid-area: 7 / 3 / 8 / 4;
+  grid-area: 8 / 3 / 9 / 4;
 }
 
 button:hover {
   background-color: rgba(255, 255, 255, 0.445);
 }
 
+ul.first-statement li {
+  background-color: var(--equal-color);
+  color: #fff;
+  list-style: none;
+  padding: 10px;
+  font-size: small;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  border-radius: 1em;
+}
+
+ul.second-statement li {
+  background-color: var(--subtract-color);
+  color: #fff;
+  list-style: none;
+  padding: 10px;
+  font-size: smaller;
+  font-weight: bold;
+  position: absolute;
+  top: 85px;
+  left: 10px;
+  right: 10px;
+  border-radius: 1em;
+}
+
 /* Making the page responsive for the tablet version */
 @media only screen and (min-width: 720px) {
   .container {
     width: 60%;
+  }
+  ul.first-statement li {
+    width: 65%;
+  }
+  ul.second-statement li {
+    width: 65%;
+    top: 60px;
   }
 }
 
@@ -253,5 +294,13 @@ button:hover {
   }
   header .title {
     font-size: x-large;
+    height: 1.5em;
+  }
+  ul.first-statement li {
+    width: 45%;
+  }
+  ul.second-statement li {
+    width: 45%;
+    top: 60px;
   }
 }
