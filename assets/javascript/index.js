@@ -50,3 +50,14 @@ cBtn.addEventListener("click", parseResultScreen);
 function parseResultScreen() {
   resultDiv.innerHTML = "";
 }
+
+// * Creating the function that is responsible for parsing the last entry of the result screen.
+
+ceBtn.addEventListener("click", deleteLastEntry);
+
+function deleteLastEntry() {
+  let resultArr = resultDiv.textContent.split("");
+  let deleted = resultArr.pop();
+  resultArr.splice(deleted);
+  resultDiv.textContent = resultArr.join("");
+}
