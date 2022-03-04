@@ -1,5 +1,6 @@
 // * Declaring the variable that hold the elements.
 let resultDiv = document.querySelector(".result-screen");
+let operationsScreen = document.querySelector(".operation-screen");
 let cBtn = document.getElementsByClassName("c-btn")[0];
 let ceBtn = document.querySelector(".ce-btn");
 let modulus = document.getElementsByClassName("modulus")[0];
@@ -40,7 +41,7 @@ addBtn.addEventListener("click", addToResultScreen);
 modulusBtn.addEventListener("click", addToResultScreen);
 
 function addToResultScreen(e) {
-  resultDiv.textContent += e.target.value;
+  operationsScreen.textContent += e.target.value;
 }
 
 // * Creating the function that is responsible for parsing the result screen when C button is clicked.
@@ -48,6 +49,7 @@ function addToResultScreen(e) {
 cBtn.addEventListener("click", parseResultScreen);
 
 function parseResultScreen() {
+  operationsScreen.innerHTML = "";
   resultDiv.innerHTML = "";
 }
 
@@ -56,17 +58,17 @@ function parseResultScreen() {
 ceBtn.addEventListener("click", deleteLastEntry);
 
 function deleteLastEntry() {
-  let resultArr = resultDiv.textContent.split("");
+  let resultArr = operationsScreen.textContent.split("");
   let deleted = resultArr.pop();
   resultArr.splice(deleted);
-  resultDiv.textContent = resultArr.join("");
+  operationsScreen.textContent = resultArr.join("");
 }
 
 // * Creating the function which responsible for operations performing.
 
 equalBtn.addEventListener("click", equation);
 function equation() {
-  let resultText = resultDiv.textContent;
+  let resultText = operationsScreen.textContent;
   let multiply = resultText.split("*");
   let division = resultText.split("/");
   let add = resultText.split("+");
