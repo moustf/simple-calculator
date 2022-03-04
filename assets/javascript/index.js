@@ -21,4 +21,24 @@ let nineBtn = document.querySelector("[value='9']");
 let zeroBtn = document.querySelector("[value='0']");
 let dotBtn = document.querySelector("[value='.']");
 
+// * Creating the function that is responsible for printing to the result screen and add event listeners.
+oneBtn.addEventListener("click", addToResultScreen);
+twoBtn.addEventListener("click", addToResultScreen);
+threeBtn.addEventListener("click", addToResultScreen);
+fourBtn.addEventListener("click", addToResultScreen);
+fiveBtn.addEventListener("click", addToResultScreen);
+sixBtn.addEventListener("click", addToResultScreen);
+sevenBtn.addEventListener("click", addToResultScreen);
+eightBtn.addEventListener("click", addToResultScreen);
+nineBtn.addEventListener("click", addToResultScreen);
+zeroBtn.addEventListener("click", addToResultScreen);
+dotBtn.addEventListener("click", addToResultScreen);
+divisionBtn.addEventListener("click", addToResultScreen);
+multiplyBtn.addEventListener("click", addToResultScreen);
+subtractBtn.addEventListener("click", addToResultScreen);
+addBtn.addEventListener("click", addToResultScreen);
+modulusBtn.addEventListener("click", addToResultScreen);
 
+function addToResultScreen(e) {
+  resultDiv.textContent += e.target.value;
+}
