@@ -60,6 +60,8 @@ cBtn.addEventListener("click", parseResultScreen);
 function parseResultScreen() {
   operationsScreen.innerHTML = "";
   resultDiv.innerHTML = "";
+  removeOperationFromLS();
+  removeResultFromLS();
 }
 
 // * Creating the function that is responsible for parsing the last entry of the result screen.
@@ -142,8 +144,20 @@ function addOperationToLS(mathOp) {
   window.localStorage.setItem("math-operation", mathOp);
 }
 
+// * Creating the function that responsible for removing the math operation from the local storage.
+
+function removeOperationFromLS() {
+  window.localStorage.removeItem("math-operation");
+}
+
 // * Creating the function that responsible for adding the result to the local storage.
 
 function addResultToLS(result) {
   window.localStorage.setItem("result", result);
+}
+
+// * Creating the function that responsible for removing the result from the local storage.
+
+function removeResultFromLS() {
+  window.localStorage.removeItem("result");
 }
