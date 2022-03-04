@@ -213,3 +213,45 @@ div.equal .equal {
 button:hover {
   background-color: rgba(255, 255, 255, 0.445);
 }
+
+/* Making the page responsive for the tablet version */
+@media only screen and (min-width: 720px) {
+  .container {
+    width: 60%;
+  }
+}
+
+/* Making the page responsive for the desktop version */
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 50%;
+  }
+  div.division .division {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+  }
+  div.multiply .multiply {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+  }
+  div.add .add {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+  }
+  div.subtract .subtract {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+  }
+  div.equal .equal {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+  }
+  header .title {
+    font-size: x-large;
+  }
+}
