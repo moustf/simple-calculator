@@ -42,3 +42,11 @@ modulusBtn.addEventListener("click", addToResultScreen);
 function addToResultScreen(e) {
   resultDiv.textContent += e.target.value;
 }
+
+// * Creating the function that is responsible for parsing the result screen when C button is clicked.
+
+cBtn.addEventListener("click", parseResultScreen);
+
+function parseResultScreen() {
+  resultDiv.innerHTML = "";
+}
